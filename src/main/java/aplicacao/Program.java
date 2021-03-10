@@ -14,7 +14,13 @@ public class Program {
 		EntityManager em = emf.createEntityManager();
 		
 		// Método find busca por ID
-		Pessoa pessoa = em.find(Pessoa.class, 2);
+		Pessoa pessoa = em.find(Pessoa.class, 3); 
+		
+		em.getTransaction().begin();
+		
+		em.remove(pessoa);
+		
+		em.getTransaction().commit();
 		
 		System.out.println(pessoa);
 		
